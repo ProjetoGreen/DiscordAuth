@@ -106,6 +106,50 @@ public class DiscordAuthDB extends DataBase
             return 0;
         }
     }
+       public String getAccountsByDiscordId(String discordId)
+    {
+        String sqlRequest = "select name from users where discord_id=?";
+        try
+        {
+            // make a sql query to get player data from the database
+            ResultSet resultSet = this.executeQuery(sqlRequest, discordId);
+            String ret = resultSet.getString("name");
+            resultSet.next();
+            
+            while(resultSet.next()) {
+                ret = ret.concat(", ");
+                ret = ret.concat(resultSet.getString("name"));
+            }
+            return ret;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return "no accoutns";
+        }
+    }
+    
+    public boolean removeAccountFromDiscord(@NotNull String name, @NotNull String id)
+    {
+        if (!this.accountExists(name)) return false;
+
+        String sqlRequest = "delete from users where name = ? and discord_id=?";
+
+        try
+        {   // add user to db
+            this.executeUpdate(sqlRequest, name, id);
+            // commit
+            this.commit();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+       
     public boolean accountExists(String name)
     {
         String sqlRequest = "select * from users where name=?";

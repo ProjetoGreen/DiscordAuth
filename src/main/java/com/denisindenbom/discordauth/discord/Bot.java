@@ -68,6 +68,15 @@ public class Bot
         catch (InsufficientPermissionException exception)
         {this.logger.warning("I don't have permissions to send messages to the channel");}
     }
+    
+    public void deleteMessage(String messageId, MessageChannel channel)
+    {
+        try{
+            this.logger.info(channel.deleteMessageById(messageId).toString());
+        }
+        catch (InsufficientPermissionException exception)
+        {this.logger.warning("I don't have permissions to send messages to the channel");}
+    }
 
     public JDA getJDA()
     {return this.JDA;}

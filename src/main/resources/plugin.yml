@@ -1,9 +1,9 @@
 name: DiscordAuth
-version: 1.0.0
+version: 1.0.5
 main: com.denisindenbom.discordauth.DiscordAuth
 
 prefix: DiscordAuth
-authors: [DenisIndenbom]
+authors: [DenisIndenbom, dnetto]
 description: CyberAuth is a plugin for authentication users in your minecraft server
 
 commands:

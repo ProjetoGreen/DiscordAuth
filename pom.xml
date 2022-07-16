@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.denisindenbom</groupId>
-    <artifactId>DiscordAuth</artifactId>
-    <version>1.0.0</version>
-    <name>DiscordAuth</name>
+    <groupId>com.dnettoraw</groupId>
+    <artifactId>DiscordAuth-dnetto</artifactId>
+    <version>1.0.5</version>
+    <name>DiscordAuth-dnetto</name>
 
     <build>
         <defaultGoal>clean package</defaultGoal>

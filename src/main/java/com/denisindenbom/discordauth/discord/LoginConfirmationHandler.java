@@ -64,8 +64,9 @@ public class LoginConfirmationHandler extends ListenerAdapter
             this.plugin.getAuthManager().addAccount(account);
 
             // send message
+            this.plugin.getBot().deleteMessage(messageId, event.getPrivateChannel());
             this.plugin.getBot().sendSuccessful(this.messagesConfig.getString("bot.login"), event.getPrivateChannel());
-
+            
             this.plugin.getLogger().info(player.getName() + " logged in!");
         }
     }
